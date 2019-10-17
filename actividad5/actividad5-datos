@@ -2,12 +2,44 @@ retornar los 50 millones
 select edad from personas1;
 Time: 56812,642 ms (00:56,813)
 1,9 gb de ram
+------------------------------------
+------------------------------------
 
 group by
 base_volumen=# select edad,count(edad) from personas1 group by edad;
 Time: 63400,886 ms (01:03,401)
 0 de ram -> no vario el uso de la ram
 
-con python 
+con python select edad from personas1;
 #1,5 gb de ram
 #98.28149247169495 seconds 
+
+
+con python y fetch de psql con 25.000.000
+#1,9 gb de ram
+96.92843532562256 seconds 
+
+con python y fetch de psql con 1.000.000
+100.77391910552979 seconds ---
+--- 96.38189029693604 seconds ---
+#no hay varianza en la ram
+
+con python y fetch de psql con 10.000.000
+#0,3 gb de ram
+--- 94.04679894447327 seconds ---  Tamanio del bloque  10000000
+
+
+cursors are an easy and efficient way to retrieve data from the server. However, you have to keep one thing in mind: Latency. Asking the network for one row at a time will add considerable network overhead (latency). It therefore makes sense to fetch data in reasonably large chunks
+
+la idea esq valga la pena sacar los bloques
+
+duda cuando se hace un  cur parte de cualquier parte de la tabla, no me dan los mismos valores al correr actividad5_2.py
+
+The cursor position can be before the first row of the query result, on any particular row of the result, or after the last row of the result.
+
+
+psql es mas rapido, pero no usa ram de mas 
+en cambio python ocupa mas ram (dependiendo del tamaño del bloque) pero es mas rapido
+
+
+testeado en personas1
