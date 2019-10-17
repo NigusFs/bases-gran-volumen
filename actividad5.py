@@ -1,5 +1,9 @@
 import psycopg2
 
+start_time = time.time() #begin clock
+
+
+
 conn= psycopg2.connect(user ="informatica",database="base_volumen")
 cur = connection.cursor()
 
@@ -33,5 +37,10 @@ conn.commit()
 cur.close()
 conn.close()
 
+print("before for --- %s seconds ---" % (time.time() - start_time))	
+
 for i in range(0,len(arr_age)-1)
 	print(i," -> ",arr_age[i])
+
+
+print("after for --- %s seconds ---" % (time.time() - start_time))	
