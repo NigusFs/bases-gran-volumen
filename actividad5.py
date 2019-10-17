@@ -1,46 +1,34 @@
 import psycopg2
+import time
 
 start_time = time.time() #begin clock
 
 
-
 conn= psycopg2.connect(user ="informatica",database="base_volumen")
-cur = connection.cursor()
+cur = conn.cursor()
 
-table=input("Ingrese el nombre de la tabla \n")
-size_block=input()
+
 sql='''
-	SELECT edad from %s;
-'''%table
-
+	SELECT edad from personas1;
+'''
 cur.execute(sql)
 
-size_element=50000000 # rows of the tables
-size_block = 100000 if size_block ==" "  else size_block # check this comparation
-
-= #rows whom be stored in ram 
-arr_age=[0 for i in range(0,99)] #all age posible in the database
-
-#while cur.fetchmany(size_block) !=[]: #stop when then is no more data
-#	cur.fetchmany(size_block)
+arr_age=[0 for i in range(0,100)] #all age posible in the database
 
 
-for i in range(0, size_element/size_element)
-	i_age=cur.fetchmany(size_block)
-	if cur.fetchmany(size_block) != []:
-		arr_age[i_age]+=1
-	else 
-		break 
+while True:
+	try:
+		arr_age[int(cur.fetchone()[0])]+=1
+	except:
+		break
 
 
 conn.commit()
 cur.close()
 conn.close()
 
-print("before for --- %s seconds ---" % (time.time() - start_time))	
-
-for i in range(0,len(arr_age)-1)
+for i in range(0,len(arr_age)):
 	print(i," -> ",arr_age[i])
 
 
-print("after for --- %s seconds ---" % (time.time() - start_time))	
+print("--- %s seconds ---" % (time.time() - start_time))
