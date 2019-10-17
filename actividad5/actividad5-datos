@@ -1,0 +1,8 @@
+select edad from personas1;
+Time: 56812,642 ms (00:56,813)
+1,9 gb de ram
+
+
+base_volumen=# select edad,count(edad) from personas1 group by edad;
+Time: 63400,886 ms (01:03,401)
+0 de ram -> no vario el uso de la ram

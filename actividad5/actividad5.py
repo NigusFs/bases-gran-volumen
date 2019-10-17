@@ -32,3 +32,5 @@ for i in range(0,len(arr_age)):
 
 
 print("--- %s seconds ---" % (time.time() - start_time))
+#1,5 gb de ram
+#98.28149247169495 seconds 
