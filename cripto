@@ -1,0 +1,30 @@
+testeado
+23oemx73
+testeando4@pokemail.net
+
+inicialmente se genera una contraseñas aleatoria que se muestra en el html 
+
+
+
+
+---
+hash
+
+console.log(password.value)
+VM2742:1 123455
+
+console.log(username.value)
+VM2608:1 hola
+
+
+
+console.log('1$' + sha3_512($('#username').val().toLowerCase() + $('#password').val()))
+VM2565:1 1$314888cb72a1de8ff2bf2215fb48b70afb5d34195ed9faa7ea0dee5c30ef234a2d429e7c9931338a9e3765a133ed9ad2b81a73036760c969851672f378df94c9
+
+console.log('1$' + sha3_512($('#username').val().toLowerCase() + 123455))
+VM2537:1 1$314888cb72a1de8ff2bf2215fb48b70afb5d34195ed9faa7ea0dee5c30ef234a2d429e7c9931338a9e3765a133ed9ad2b81a73036760c969851672f378df94c9
+
+
+
+
+23oemx73 -> 1$1d16461dd5354fdec68d87d14465a9c31d44dba8cc1247827534e157ca5dfd37e26d9cc9f9e18da404d9dec7a975604c544abc56e0ae5e3a94d9d71fa67e0f7e
